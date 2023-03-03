@@ -39,6 +39,27 @@ Decode the generated proto file descriptor:
 protoc < src/api.bin --decode=google.protobuf.FileDescriptorSet google/protobuf/descriptor.proto > descriptor.txt
 ```
 
+Result from `grpcurl`:
+```shell
+grpcurl -plaintext localhost:33037 describe
+postman.api.v1.Grpc is a service:
+// Postman gRPC service
+service Grpc {
+  // GetVersion
+  rpc GetVersion ( .postman.api.v1.GetVersionRequest ) returns ( .postman.api.v1.GetVersionResponse );
+  // SendBlocks
+  rpc SendBlocks ( stream .postman.api.v1.SendBlocksRequest ) returns ( stream .postman.api.v1.SendBlocksResponse );
+  // SendOperations
+  rpc SendOperations ( stream .postman.api.v1.SendOperationsRequest ) returns ( stream .postman.api.v1.SendOperationsResponse );
+}
+grpc.reflection.v1alpha.ServerReflection is a service:
+service ServerReflection {
+  // The reflection service is structured as a bidirectional stream, ensuring
+  // all related requests go to a single server.
+  rpc ServerReflectionInfo ( stream .grpc.reflection.v1alpha.ServerReflectionRequest ) returns ( stream .grpc.reflection.v1alpha.ServerReflectionResponse );
+}
+```
+
 ## Contributing
 
 If you would like to contribute to this project, you may fork it and submit your changes in a pull request.
