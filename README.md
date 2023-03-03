@@ -2,6 +2,11 @@
 
 This is a project which reproduce a reflection bug in Postman gRPC client.
 
+The bug show up starting from an increasing `.proto`complexity.
+
+![image](https://user-images.githubusercontent.com/22281426/222745944-8911741b-4f20-46ad-bb1e-06eb4533badd.png)
+
+
 See https://github.com/postmanlabs/postman-app-support/issues/11625
 
 ## Prerequisites
