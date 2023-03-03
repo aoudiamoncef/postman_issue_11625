@@ -39,9 +39,12 @@ Decode the generated proto file descriptor:
 protoc < src/api.bin --decode=google.protobuf.FileDescriptorSet google/protobuf/descriptor.proto > descriptor.txt
 ```
 
-Result from `grpcurl`:
+Result from `grpcurl` call:
 ```shell
 grpcurl -plaintext localhost:33037 describe
+```
+
+```proto
 postman.api.v1.Grpc is a service:
 // Postman gRPC service
 service Grpc {
