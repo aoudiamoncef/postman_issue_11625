@@ -1,0 +1,15 @@
+{
+    "rust-analyzer.procMacro.enable": true,
+    "protoc": {
+        //TODO to be changed
+        "path": "/opt/homebrew/bin/protoc",
+        "compile_on_save": true,
+        "options": [
+            "{workspaceRoot}/proto/postman/*.proto",
+            "--proto_path=${workspaceRoot}/proto/postman",
+            "--proto_path=${workspaceRoot}/proto/third-party",
+            "--java_out=${workspaceRoot}/target/",
+            "--descriptor_set_out=${workspaceRoot}/src/hello.bin"
+        ]
+    }
+}

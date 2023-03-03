@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+package postman.api.v1;
+
+import "block.proto";
+import "operation.proto";
+import "google/api/annotations.proto";
+import "google/rpc/status.proto";
+
+option cc_enable_arenas = true;
+option csharp_namespace = "Postman.Api.V1";
+option go_package = "google.golang.org/genproto/postman/api/v1/grpc;grpc";
+option java_multiple_files = true;
+option java_package = "com.postman.api.v1";
+option objc_class_prefix = "GRPC";
+option php_namespace = "Postman\\Api\\V1";
+
+// Postman gRPC service
+service Grpc {
+
+  // GetVersion
+  rpc GetVersion ( GetVersionRequest ) returns ( GetVersionResponse ) {
+    option (google.api.http) = { get: "/v1/version" };
+  }
+
+  // SendBlocks
+  rpc SendBlocks ( stream SendBlocksRequest ) returns ( stream SendBlocksResponse ) {}
+
+  // SendOperations
+  rpc SendOperations ( stream SendOperationsRequest ) returns ( stream SendOperationsResponse ) {}
+
+}
+
+// GetVersionRequest holds request from GetVersion
+message GetVersionRequest {
+  // string value
+  string id = 1;
+  // string field
+  string version = 2;
+}
+
+// GetVersionResponse holds response from GetVersion
+message GetVersionResponse {
+  // string value
+  string id = 1;
+  // object field
+  oneof message {
+    string result = 2;
+    google.rpc.Status error = 3;
+  }
+}

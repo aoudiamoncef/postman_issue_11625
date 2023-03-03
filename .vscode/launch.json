@@ -1,0 +1,24 @@
+{
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug executable 'postman_issue_11625'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=postman_issue_11625",
+                    "--package=postman_issue_11625",
+                    "--features=sandbox",
+                ],
+                "filter": {
+                    "name": "postman_issue_11625",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "env": {"RUST_BACKTRACE":"1"},  
+            "cwd": "${workspaceFolder}"
+        }
+    ]
+}

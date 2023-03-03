@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package postman.api.v1;
+
+import "google/rpc/status.proto";
+
+option cc_enable_arenas = true;
+option csharp_namespace = "Postman.Api.V1";
+option go_package = "google.golang.org/genproto/postman/api/v1/operation;operation";
+option java_multiple_files = true;
+option java_package = "com.postman.api.v1";
+option objc_class_prefix = "OPERATION";
+option php_namespace = "Postman\\Api\\V1";
+
+// SendOperationsRequest holds parameters to SendOperations
+message SendOperationsRequest {
+  // string field
+  string id = 1;
+  // object field
+  string operation = 2;
+}
+
+// SendOperationsResponse holds response from SendOperations
+message SendOperationsResponse {
+  // string field
+  string id = 1;
+  // object field
+  oneof message {
+    OperationResult result = 2;
+    google.rpc.Status error = 3;
+  }
+}
+
+// Holds Operation response
+message OperationResult {
+  // string field
+  string id = 1;
+}
