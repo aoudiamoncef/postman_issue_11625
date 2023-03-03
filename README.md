@@ -2,6 +2,8 @@
 
 This is a project which reproduce a reflection bug in Postman gRPC client.
 
+See https://github.com/postmanlabs/postman-app-support/issues/11625
+
 ## Prerequisites
 
 Before running this project, you will need the following:
